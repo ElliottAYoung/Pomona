@@ -31,7 +31,7 @@ class Tree
 
   def find(id)
     #Finds and returns a Node by its id using the Extractor
-    Extractor.find_node_by_id(id)
+    Extractor.find_node_by_id(id, @data[:tree_array])
   end
 
   private
@@ -48,7 +48,7 @@ class Tree
     if parent_id.nil?
       @data[:tree_array] << node
     else
-      parent = @data.find(parent_id)
+      parent = find(parent_id)
       parent.children << node
     end
   end
