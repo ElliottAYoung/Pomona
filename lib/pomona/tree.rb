@@ -12,15 +12,16 @@ class Tree
   def add_node(node_hash, parent_id = nil)
     #Creates a new node to be attached to a parent
     #Grants a generated id to the node
-    node = Node.new(node_hash, next_id)
+    node = Node.new(node_hash, next_id, parent_id)
     attach_to_parent(node, parent_id)
   end
 
   def remove_node(id)
     #Removes a node from the Tree by its id
     #Removes all of their descendents as well
-    node_to_delete = @data.find(id)
-    Pruner.remove_node_and_descendents(node_to_delete)
+    node_to_delete = find(id)
+    parent_node = find_parent_node(node_to_delete)
+    Pruner.remove_node_and_descendents(node_to_delete, parent_node)
   end
 
   def values_at(keys)
@@ -57,5 +58,14 @@ class Tree
     #Flattens the output array of values_at if it only contains data for one key
     return output_array if output_array.empty?
     output_array[0].length == 1 ? output_array.flatten : output_array
+  end
+
+  def find_parent_node(node)
+    #Finds the parent node of the given node. If it is a top level node, returns the tree_array instead
+    if node.parent_id.nil?
+      @data[:tree_array]
+    else
+      find(node.parent_id)
+    end
   end
 end
