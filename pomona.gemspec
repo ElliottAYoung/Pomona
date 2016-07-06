@@ -9,8 +9,8 @@ Gem::Specification.new do |spec|
   spec.authors       = ["ElliottAYoung"]
   spec.email         = ["elliott.a.young@gmail.com"]
 
-  spec.summary       = "A Gem for Traversing Tree Data Structures"
-  spec.description   = "A Gem for Traversing Tree Data Structures"
+  spec.summary       = "A lightweight solution for creating and managing tree data structures"
+  spec.description   = "A lightweight solution for creating and managing tree data structures"
   spec.homepage      = "http://github.com/ElliottAYoung/Pomona"
   spec.license       = "MIT"
   spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
