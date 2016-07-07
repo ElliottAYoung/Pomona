@@ -1,3 +1,5 @@
+require "pomona/exceptions"
+
 class Node
   attr_reader :id, :parent_id
   attr_accessor :children, :node

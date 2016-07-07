@@ -1,3 +1,5 @@
+require "pomona/exceptions"
+
 module Extractor
   def self.get_all_by_keys(tree_array = [], keys = [], values = [])
     tree_array.each do |tree_node|
@@ -18,6 +20,6 @@ module Extractor
       end
     end
 
-    @target
+    @target.nil? ? (raise NodeNotFound) : (return @target)
   end
 end

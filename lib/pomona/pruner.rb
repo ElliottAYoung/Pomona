@@ -1,3 +1,5 @@
+require "pomona/exceptions"
+
 module Pruner
   def self.remove_node_and_descendents(node, parent_node)
     if parent_node.kind_of?(Array)

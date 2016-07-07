@@ -1,6 +1,7 @@
 require "pomona/node"
 require "pomona/extractor"
 require "pomona/pruner"
+require "pomona/exceptions"
 
 class Tree
   attr_reader :data
