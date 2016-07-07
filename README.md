@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ElliottAYoung/Pomona.svg?branch=master)](https://travis-ci.org/ElliottAYoung/Pomona)
+
 # Pomona
 
 Pomona is a simple, lightweight gem for creating and managing tree data structures in Ruby. It works using a custom data structure (the Tree) to contain small hashes of data (the Nodes) that can be queried and searched.
