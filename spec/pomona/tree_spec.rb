@@ -88,6 +88,14 @@ describe Tree do
     end
   end
 
+  describe "#nodes" do
+    xit "shoud return an Array" do
+    end
+
+    xit "should be equivalent to the tree_array" do
+    end
+  end
+
   describe "#find" do
     before do
       tree.add_node({ name: "Test" })
@@ -100,7 +108,8 @@ describe Tree do
     end
 
     context 'ID does not exist' do
-      xit 'should return raise an Exception' do
+      it 'should return raise an Exception' do
+        tree.find(2)
       end
     end
   end

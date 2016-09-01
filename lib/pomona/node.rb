@@ -11,4 +11,17 @@ class Node
     @children = @node[:children]
     @parent_id = parent_id
   end
+
+  def has_children?
+    children.any?
+  end
+
+  def has_grandchildren?
+    if has_children?
+      children.select { |child| child.has_children? }.any?
+    else
+      false
+    end
+  end
+
 end
