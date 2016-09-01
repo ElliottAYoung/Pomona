@@ -27,13 +27,18 @@ class Tree
 
   def values_at(keys)
     #Returns an array of data from the tree based on the given keys
-    data = Extractor.get_all_by_keys(@data[:tree_array], keys)
+    data = Extractor.get_all_by_keys(nodes, keys)
     flatten_output_array(data)
+  end
+
+  def nodes
+    #Returns an array of all of the nodes attached to the tree
+    @data[:tree_array]
   end
 
   def find(id)
     #Finds and returns a Node by its id using the Extractor
-    Extractor.find_node_by_id(id, @data[:tree_array])
+    Extractor.find_node_by_id(id, nodes)
   end
 
   private
@@ -58,7 +63,7 @@ class Tree
   def flatten_output_array(output_array)
     #Flattens the output array of values_at if it only contains data for one key
     return output_array if output_array.empty?
-    output_array[0].length == 1 ? output_array.flatten : output_array
+    output_array[0].length == 1 ? output_array.flatten.compact : output_array.compact
   end
 
   def find_parent_node(node)
